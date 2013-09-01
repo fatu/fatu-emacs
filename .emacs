@@ -35,16 +35,16 @@
 ;; shell color
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-;; el-get
-;;(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-;;(unless (require 'el-get nil 'noerror)
-;;  (with-current-buffer
-;;      (url-retrieve-synchronously
-;;       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-;;    (let (el-get-master-branch)
-;;      (goto-char (point-max))
-;;      (eval-print-last-sexp))))
-;;(el-get 'sync)
+;;el-get
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (let (el-get-master-branch)
+      (goto-char (point-max))
+      (eval-print-last-sexp))))
+(el-get 'sync)
 
 ;; install jedi
 (add-hook 'python-mode-hook 'auto-complete-mode)
