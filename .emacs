@@ -1,4 +1,14 @@
-;;; package -- aa
+;; global
+
+;; line number and format
+(global-linum-mode 1)
+(setq linum-format "%d| ")
+
+(setq make-backup-files nil) ; won't gen '~' backup file
+
+;; custom-set-variables
+(custom-set-variables
+'(show-paren-mode t))
 
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -54,6 +64,8 @@
 (add-hook 'after-init-hook 'global-flycheck-mode)
 
 ;; autopair
+(setq autopair-extra-pairs '(:everywhere ((?< . ?>))))
+
 (require 'autopair)
 (autopair-global-mode) ;; to enable in all buffers
 
@@ -63,3 +75,12 @@
 ;;                               (when indent-tabs-mode
 ;;                                 (guess-style-guess-tab-width))))
 
+
+;;R stuff
+(setq ess-eval-visibly-p nil)
+(setq ess-ask-for-ess-directory nil)
+(require 'ess-eldoc)
+;;compile the first target in the Makefile in the current directory using F9
+(global-set-key [f9] 'compile)
+(setq compilation-read-command nil)
+(show-paren-mode 1)
